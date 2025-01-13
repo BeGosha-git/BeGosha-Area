@@ -1,5 +1,13 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Устанавливает минимальную высоту на 100% высоты окна */
 }
 
 .App-logo {

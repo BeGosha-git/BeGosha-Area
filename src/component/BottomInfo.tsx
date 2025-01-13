@@ -12,11 +12,14 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+
+import "../pages.css"
 //import { Link } from "react-router-dom";
 //import MenuIcon from "@mui/icons-material/Menu";
 
 const BottomInfo = () => {
   return (
+    <div className="PageForm">
     <div className="BottomInfo">
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -62,6 +65,7 @@ const BottomInfo = () => {
           </Toolbar>
         </Container>
       </AppBar>
+    </div>
     </div>
   );
 };

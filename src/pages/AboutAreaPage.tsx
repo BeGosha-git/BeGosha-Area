@@ -1,24 +1,25 @@
-import React from 'react'
-import { Box, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import '../pages.css';
 
-const NotFoundPage = () => {
+const AboutUs: React.FC = () => {
     return (
-        <Box className="AboutAreaPage">
-            <Typography className="page-not-found__title" variant="h1" component="h1">
-                Oops!
-            </Typography>
-            <Box className="page-not-found__animation-container">
-                <Box className="page-not-found__illustration"></Box>
-            </Box>
-            <Typography className="page-not-found__message" component="p">
-                It seems you've wandered off the shopping path. Let's get you back on track!
-            </Typography>
-            <Link to="/" className="page-not-found__link">
-                Return to Home
-            </Link>
-        </Box>
-    )
-}
+        <div>
+            <h1 className="title">About Area</h1>
+            <p className="description">
+                Pet проект, созданный для курсовых...
+            </p>
+            <h2 className="subTitle">Задача Area</h2>
+            <p className="description">
+                Задача Area – проверить, что работает.
+            </p>
+            <h2 className="subTitle">Ценность Area</h2>
+            <ul className="list">
+                <li>Интерфейс</li>
+                <li>Работает</li>
+                <li>Типо инновации</li>
+            </ul>
+        </div>
+    );
+};
 
-export default NotFoundPage
+export default AboutUs;
