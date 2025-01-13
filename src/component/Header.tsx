@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area"];
-const title_version = "BeGosha Area 1.05";
+const title_version = "BeGosha Area 1.07";
 const Header = () => {
   const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -44,7 +44,7 @@ const Header = () => {
       setAnchorElUser(null);
     };*/
   return (
-    <div className="Header">
+    <div>
       <AppBar position="fixed">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -99,8 +99,11 @@ const Header = () => {
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
-                      component={Link}
-                      to={`/${page.toLowerCase()}`}
+                      /*component={Link}
+                      to={`/${page.toLowerCase()}`}*/
+                      noWrap
+                      component="a"
+                      href={`/${page.toLowerCase()}`}
                     >
                       {page}
                     </Typography>
@@ -130,8 +133,10 @@ const Header = () => {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  component={Link}
-                  to={`/${page.toLowerCase()}`}
+                  /*component={Link}
+                  to={`/${page.toLowerCase()}`}*/
+                  component="a"
+                  href={`/${page.toLowerCase()}`}
                   onClick={handleOpenNavMenu}
                   sx={{ my: 2, color: "inherit", display: "block" }}
                 >

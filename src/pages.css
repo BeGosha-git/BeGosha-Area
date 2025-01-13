@@ -1,12 +1,10 @@
 body {
-  margin: 0;
-  padding-top: 10vmin;
+  padding-top: 10vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
 }
 
 code {
@@ -15,12 +13,12 @@ code {
 }
 
 .PageForm {
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
-
 .BottomInfo {
-  text-align: center; /* Центрирует текст */
+  margin: 0;
+  padding: 0;
 }
 
 .container {

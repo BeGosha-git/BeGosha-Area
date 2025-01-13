@@ -6,11 +6,6 @@
   max-width: 100vw;
 }
 
-.content {
-  flex: 1; /* Разрешает компоненту занимать оставшее пространство */
-  overflow-y: auto; /* Позволяет полосе прокрутки появляться при необходимости */
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,9 +31,8 @@
 }
 
 .custom-scrollbars__content {
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .custom-scrollbars__content::-webkit-scrollbar {
