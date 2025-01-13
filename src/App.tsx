@@ -17,12 +17,14 @@ function App(){
     <div className="App">
       <Router>
       <Header />
+        <div className="pages">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Profile" element={<ProfilePage />} />
-          <Route path="/About Area" element={<AboutAreaPage />} />
-          <Route path="/NotFoundPage" element={<NotFoundPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/about area" element={<AboutAreaPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </div>
         <BottomInfo />
       </Router>
     </div>

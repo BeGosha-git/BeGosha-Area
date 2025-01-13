@@ -100,7 +100,7 @@ const Header = () => {
                     <Typography
                       textAlign="center"
                       component={Link}
-                      to={`/${page}`}
+                      to={`/${page.toLowerCase()}`}
                     >
                       {page}
                     </Typography>
@@ -131,7 +131,7 @@ const Header = () => {
                 <Button
                   key={page}
                   component={Link}
-                  to={`/${page}`}
+                  to={`/${page.toLowerCase()}`}
                   onClick={handleOpenNavMenu}
                   sx={{ my: 2, color: "inherit", display: "block" }}
                 >
