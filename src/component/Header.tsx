@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area"];
-const title_version = "BeGosha Area 1.04";
+const title_version = "BeGosha Area 1.05";
 const Header = () => {
   const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -100,7 +100,7 @@ const Header = () => {
                     <Typography
                       textAlign="center"
                       component={Link}
-                      to={`/${page.toLowerCase()}`}
+                      to={`/${page}`}
                     >
                       {page}
                     </Typography>
