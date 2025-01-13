@@ -19,7 +19,6 @@ import "../pages.css"
 
 const BottomInfo = () => {
   return (
-    <div className="PageForm">
     <div className="BottomInfo">
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -65,7 +64,6 @@ const BottomInfo = () => {
           </Toolbar>
         </Container>
       </AppBar>
-    </div>
     </div>
   );
 };

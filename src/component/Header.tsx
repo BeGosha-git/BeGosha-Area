@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area"];
-const title_version = "BeGosha Area 1.02";
+const title_version = "BeGosha Area 1.04";
 const Header = () => {
   const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -25,10 +25,10 @@ const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
       null
     );
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    /*const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
       null
     );
-    /*const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorNav(event.currentTarget);
     };*/
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {

@@ -3,7 +3,7 @@ import '../pages.css';
 
 const AboutUs: React.FC = () => {
     return (
-        <div>
+        <div className='PageForm'>
             <h1 className="title">About Area</h1>
             <p className="description">
                 Pet проект, созданный для курсовых...
