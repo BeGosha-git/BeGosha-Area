@@ -17,14 +17,32 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area"];
-
+const title_version = "BeGosha Area 1.02";
 const Header = () => {
   const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorNav(event.currentTarget);
-  };
+      null
+    );
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+      null
+    );
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+      null
+    );
+    /*const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorNav(event.currentTarget);
+    };*/
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorElNav(event.currentTarget);
+    };
+    /*const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorElUser(event.currentTarget);
+    };*/
+    const handleCloseNavMenu = () => {
+      setAnchorElNav(null);
+    };
+    /*const handleCloseUserMenu = () => {
+      setAnchorElUser(null);
+    };*/
   return (
     <div className="Header">
       <AppBar position="fixed">
@@ -45,7 +63,7 @@ const Header = () => {
                 textDecoration: "none",
               }}
             >
-              BeGosha Area 1.01
+              {title_version}
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -54,14 +72,14 @@ const Header = () => {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleNewMenu}
+                onClick={handleOpenNavMenu}
                 color="inherit"
               >
                 <MenuIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"
-                anchorEl={NavMenu}
+                anchorEl={anchorElNav}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "left",
@@ -71,14 +89,14 @@ const Header = () => {
                   vertical: "top",
                   horizontal: "left",
                 }}
-                open={Boolean(NavMenu)}
-                onClose={handleNewMenu}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleNewMenu}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
                       component={Link}
@@ -106,16 +124,16 @@ const Header = () => {
                 textDecoration: "none",
               }}
             >
-              Shop Goodies
+              {title_version}
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
                   component={Link}
-                  to={`/${page.toLowerCase()}`}
-                  onClick={handleNewMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  to={`/${page}`}
+                  onClick={handleOpenNavMenu}
+                  sx={{ my: 2, color: "inherit", display: "block" }}
                 >
                   {page}
                 </Button>

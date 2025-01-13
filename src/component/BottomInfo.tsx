@@ -6,22 +6,16 @@ import {
   Box,
   //Button,
   Container,
-  IconButton,
-  Menu,
+  //IconButton,
+  //Menu,
   //MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
 //import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
+//import MenuIcon from "@mui/icons-material/Menu";
 
 const BottomInfo = () => {
-  const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorNav(event.currentTarget);
-  };
   return (
     <div className="BottomInfo">
       <AppBar position="static">
@@ -46,41 +40,12 @@ const BottomInfo = () => {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleNewMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={NavMenu}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(NavMenu)}
-                onClose={handleNewMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-              </Menu>
             </Box>
             <Typography
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
