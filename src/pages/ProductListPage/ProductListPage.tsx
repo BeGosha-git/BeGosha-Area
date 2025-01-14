@@ -7,13 +7,14 @@ import ProductItem from '../../component/ProductItem/ProductItem';
 
 
 const products = [
-    { id: '1', name: 'Банан', image: 'image1.png', info: 'ProductPreviu.tsx' },
-    { id: '2', name: 'Банан', image: 'image1.png', info: 'ProductPreviu.tsx' },
-    // Добавьте больше продуктов по мере необходимости
+    { id: '1', name: 'Банан', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
+    { id: '2', name: 'Огурец', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
+    { id: '3', name: 'Помидор', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
 ];
 
 const ProductListPage: React.FC = () => {
     return (
+      <div className='PageForm'>
         <div className="product-list-page">
             <h1>Список продуктов</h1>
             <div className="product-list">
@@ -22,6 +23,7 @@ const ProductListPage: React.FC = () => {
                 ))}
             </div>
         </div>
+      </div>
     );
 }
 
