@@ -10,6 +10,7 @@
 };*/
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Обновленный интерфейс Product
 export interface Product {
     id: string;
     name: string;
@@ -21,11 +22,13 @@ export interface Product {
         rating: number;
     }>;
     price: number;
+    quantity?: number; // Добавлено
 }
 
+// Обновленный UserCart
 interface UserCart {
     userId: string;
-    cart: Product[];
+    cart: Array<Product & { quantity: number }>; // Количество добавлено в корзину
     favorites: Product[];
 }
 
@@ -64,17 +67,39 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [userCart]);
 
     const addToCart = (product: Product) => {
-        setUserCart(prev => ({
-            ...prev,
-            cart: [...prev.cart, product],
-        }));
+        setUserCart(prev => {
+            const existingProductIndex = prev.cart.findIndex(item => item.id === product.id);
+            
+            if (existingProductIndex >= 0) {
+                // Если продукт уже есть, увеличиваем количество.
+                const updatedCart = [...prev.cart];
+                updatedCart[existingProductIndex].quantity! += 1;
+                return { ...prev, cart: updatedCart };
+            } else {
+                // Иначе добавляем новый продукт с количеством 1.
+                return { ...prev, cart: [...prev.cart, { ...product, quantity: 1 }] };
+            }
+        });
     };
-
+    
     const removeFromCart = (id: string) => {
-        setUserCart(prev => ({
-            ...prev,
-            cart: prev.cart.filter((item, index) => item.id !== id || index !== prev.cart.length - 1), // Убедитесь, что удаляется только последний добавленный элемент с данным id
-        }));
+        setUserCart(prev => {
+            const existingProductIndex = prev.cart.findIndex(item => item.id === id);
+            
+            if (existingProductIndex === -1) return prev;
+            
+            const updatedCart = [...prev.cart];
+            const currentQuantity = updatedCart[existingProductIndex].quantity!;
+            
+            if (currentQuantity > 1) {
+                // Уменьшаем количество товара, если оно больше 1.
+                updatedCart[existingProductIndex].quantity! -= 1;
+                return { ...prev, cart: updatedCart };
+            } else {
+                // Если количество товара 1, удаляем его из корзины.
+                return { ...prev, cart: updatedCart.filter(item => item.id !== id) };
+            }
+        });
     };
 
     const addToFavorites = (product: Product) => {
