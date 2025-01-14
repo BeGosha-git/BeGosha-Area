@@ -14,6 +14,7 @@ export interface Product {
         comment: string;
         rating: number;
     }>;
+    price: number;
 }
 
 const ProductDetail: React.FC = () => {
@@ -49,30 +50,32 @@ const ProductDetail: React.FC = () => {
     };
 
     return (
-        <div className="container">
-            {product ? (
-                <>
-                    <h1>{product.name}</h1>
-                    <div className="image-carousel">
-                        <ImageCarousel product_images={product.product_images} productName={product.name} />
-                    </div>
-                    <p className="description">{product.description}</p>
-                    <h2 className="feedback-title">Отзывы</h2>
-                    <ul className="feedback-list">
-                        {product.feedback.map((feedback, index) => (
-                            <li key={index} className="feedback-item">
-                                <strong>{feedback.user}:</strong> {feedback.comment} - {'★'.repeat(feedback.rating)}
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="buttons-container">
-                        <button onClick={handleAddToCart} className="add-to-cart-button">В корзину</button>
-                        <button onClick={handleAddToFavorites} className="add-to-favorites-button">В избранное</button>
-                    </div>
-                </>
-            ) : (
-                <p className="loading">Загрузка...</p>
-            )}
+        <div className='PageForm'>
+            <div className="container">
+                {product ? (
+                    <>
+                        <h1>{product.name}</h1>
+                        <div className="image-carousel">
+                            <ImageCarousel product_images={product.product_images} productName={product.name} />
+                        </div>
+                        <p className="description">{product.description}</p>
+                        <h2 className="feedback-title">Отзывы</h2>
+                        <ul className="feedback-list">
+                            {product.feedback.map((feedback, index) => (
+                                <li key={index} className="feedback-item">
+                                    <strong>{feedback.user}:</strong> {feedback.comment} - {'★'.repeat(feedback.rating)}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="buttons-container">
+                            <button onClick={handleAddToCart} className="add-to-cart-button">В корзину</button>
+                            <button onClick={handleAddToFavorites} className="add-to-favorites-button">В избранное</button>
+                        </div>
+                    </>
+                ) : (
+                    <p className="loading">Загрузка...</p>
+                )}
+            </div>
         </div>
     );
 };

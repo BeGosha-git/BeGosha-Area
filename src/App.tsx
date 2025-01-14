@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage'
 import ProductListPage from './pages/ProductListPage/ProductListPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import CartPage from './pages/CartPage/CartPage';
 import Footer from './component/Footer/Footer'
 
 import './App.css';
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="/about-area" element={<AboutAreaPage />} />
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:productName" element={<ProductDetail />} /> 
+            <Route path="/cart" element={<CartPage />} /> 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-interface Product {
+export interface Product {
     id: string;
     name: string;
     price: number;
-}
+    product_images: string[];
+    description: string;
+  }
 
 interface CartContextType {
     cart: Product[];
