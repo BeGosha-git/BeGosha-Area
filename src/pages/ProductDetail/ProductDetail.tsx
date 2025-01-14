@@ -1,19 +1,24 @@
 import React from 'react'
 //import { Box, Typography } from '@mui/material'
 import { useParams } from 'react-router-dom';
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../../pages.css';
 import './ProductDetail.css';
 
-const InfoPage: React.FC = () => {
-    const { infoId } = useParams<{ infoId: string }>(); // Получаем параметр из URL
+import fs from 'fs';
+import path from 'path';
+
+const DetailPage: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+    const productData = JSON.parse(fs.readFileSync(`../../products/${id}/info.json`, 'utf-8'));
+  
     return (
-        <div>
-            <h1>Информация о продукте</h1>
-            <h2>Страница для продукта {infoId}</h2>
-            {/* Здесь вы можете добавить содержимое, которое хотите отобразить для данного продукта */}
-        </div>
+      <div className="product-detail">
+        <h1>{productData.name}</h1>
+        <img src={require(`../../products/${productData.image}`)} alt={productData.name} />
+        <p>{productData.info}</p>
+      </div>
     );
 }
 
-export default InfoPage;
+export default DetailPage;

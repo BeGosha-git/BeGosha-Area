@@ -18,7 +18,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         <div className="product-item">
             <img src={require(`../../products/${product.name}/image1.jpg`)} alt={product.name} />
             <h2>{product.name}</h2>
-            <Link to={`/products/${product.id}`}>Подробнее</Link>
+            <Link to={`/products/${product.name}`}>Подробнее</Link>
         </div>
     );
 }
