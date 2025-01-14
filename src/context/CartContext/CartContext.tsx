@@ -38,7 +38,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     useEffect(() => {
-        // Сохранение корзины в Local Storage
+        // Сохранение корзины и избранного в Local Storage
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('favorites', JSON.stringify(cart));
     }, [cart]);
@@ -48,7 +48,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     const removeFromCart = (id: string) => {
-        setCart(prevCart => prevCart.filter(item => item.id !== id));
+        setCart(prevCart => {
+            const index = prevCart.findIndex(item => item.id === id);
+            if (index === -1) return prevCart;
+            return [
+                ...prevCart.slice(0, index),
+                ...prevCart.slice(index + 1)
+            ];
+        });
     };
 
     const addToFavorites = (product: Product) => {
