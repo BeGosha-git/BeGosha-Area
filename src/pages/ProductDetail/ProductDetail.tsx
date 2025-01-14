@@ -1,35 +1,62 @@
-import React, { useEffect, useState } from 'react'
-//import { Box, Typography } from '@mui/material'
+//<img src={require(`../../products/${id}/${product.image}`)} alt={product.name} />
+
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
-import '../../pages.css';
-import './ProductDetail.css';
+import productsData from '../../products/products.json'
 
-const DetailPage: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const [productData, setProductData] = useState<any>(null);
 
+interface Feedback {
+    user: string;
+    comment: string;
+    rating: number;
+  }
+  
+  interface Product {
+    id: string;
+    name: string;
+    image: string;
+    description: string;
+    feedback: Feedback[];
+  }
+  
+  const ProductDetail: React.FC = () => {
+    const { productName } = useParams<{ productName: string }>();
+    const [product, setProduct] = useState<Product | null>(null);
+    const [error, setError] = useState<string | null>(null);
+  
     useEffect(() => {
-        const fetchProductData = async () => {
-            const response = await fetch(`../../../public/products/${id}/info.json`);
-            const data = await response.json();
-            setProductData(data);
-        };
-
-        fetchProductData();
-    }, [id]);
-
-    if (!productData) {
-        return <div>Loading...</div>;
+      console.log("productName из URL:", productName);
+      const foundProduct = productsData.find((p: Product) => p.name === productName);
+      if (foundProduct) {
+        setProduct(foundProduct);
+      } else {
+        setError('Продукт не найден');
+      }
+    }, [productName]);
+  
+    if (error) {    
+      return <div>Произошла ошибка: {error}</div>;
     }
-
+  
+    if (!product) {
+      return <div>Загрузка...</div>;
+    }
+  
     return (
-      <div className="product-detail">
-        <h1>{productData.name}</h1>
-        <img src={require(`../../../public/products/${productData.image}`)} alt={productData.name} />
-        <p>{productData.info}</p>
+      <div>
+        <h1>{product.name}</h1>
+        <img src={require(`../../products/${product.name}/${product.image}`)} alt={product.name} />
+        <p>{product.description}</p>
+        <h3>Отзывы:</h3>
+        <ul>
+          {product.feedback.map((fb, index) => (
+            <li key={index}>
+              <strong>{fb.user}</strong>: {fb.comment} <em>({fb.rating} звёзд)</em>
+            </li>
+          ))}
+        </ul>
       </div>
     );
-}
-
-export default DetailPage;
+  };
+  
+  export default ProductDetail;

@@ -16,9 +16,9 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
     return (
         <div className="product-item">
-            <img src={require(`../../../public/products/${product.name}/image1.jpg`)} alt={product.name} />
+            <img src={require(`../../products/${product.name}/image1.jpg`)} alt={product.name} />
             <h2>{product.name}</h2>
-            <Link to={`/products/${product.name}`}>Подробнее</Link>
+            <Link to={`/products/${encodeURIComponent(product.name)}`}>{product.name}</Link>
         </div>
     );
 }

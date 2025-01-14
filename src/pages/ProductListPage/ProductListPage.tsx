@@ -7,9 +7,9 @@ import ProductItem from '../../component/ProductItem/ProductItem';
 
 
 const products = [
-    { id: '1', name: 'Банан', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
-    { id: '2', name: 'Огурец', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
-    { id: '3', name: 'Помидор', image: 'image1.jpg', info: 'ProductPreviu.tsx' },
+    { id: '1', name: 'Банан', image: 'image1.jpg', info: 'info.json' },
+    { id: '2', name: 'Огурец', image: 'image1.jpg', info: 'info.json' },
+    { id: '3', name: 'Помидор', image: 'image1.jpg', info: 'info.json' },
 ];
 
 const ProductListPage: React.FC = () => {

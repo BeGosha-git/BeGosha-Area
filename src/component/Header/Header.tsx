@@ -18,11 +18,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import './Header.css'
 
 const pages = ["Profile", "About Area", "Products"];
-const title_version = "BeGosha Area 1.2.0";
+const title_version = "BeGosha Area 1.2.3";
 const Header = () => {
-  const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
+  /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
-    );
+    );*/
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
       null
     );
