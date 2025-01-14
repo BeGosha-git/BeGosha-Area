@@ -7,8 +7,8 @@ import ProductItem from '../../component/ProductItem/ProductItem';
 
 
 const products = [
-    { id: '1', name: 'Продукт 1', image: 'path/to/image1.jpg', info: 'info1.tsx' },
-    { id: '2', name: 'Продукт 2', image: 'path/to/image2.jpg', info: 'info2.tsx' },
+    { id: '1', name: 'Банан', image: 'image1.png', info: 'ProductPreviu.tsx' },
+    { id: '2', name: 'Банан', image: 'image1.png', info: 'ProductPreviu.tsx' },
     // Добавьте больше продуктов по мере необходимости
 ];
 
