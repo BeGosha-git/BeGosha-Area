@@ -1,0 +1,51 @@
+.carousel-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  display: block;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+.carousel-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.carousel-button:focus {
+  outline: none;
+}
+.image-header {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white; /* Цвет текста, можно изменить */
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для улучшения читаемости */
+}
