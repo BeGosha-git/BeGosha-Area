@@ -2,17 +2,17 @@
     "id": "3",
     "name": "Помидор",
     "product_images": ["image1.jpg", "image1.jpg", "image1.jpg"],
-    "description": "Это описание продукта 1.",
+    "description": "Это описание продукта 3.",
     "feedback": [
         {
             "user": "Пользователь 1",
             "comment": "Отличный продукт!",
-            "rating": 5
+            "rating": 3
         },
         {
             "user": "Пользователь 2",
             "comment": "Хорошее качество, но могла бы быть дешевле.",
-            "rating": 4
+            "rating": 3
         }
     ],
     "price" : 500

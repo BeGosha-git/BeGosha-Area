@@ -5,7 +5,7 @@ import '../../pages.css';
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart } = useCart();
-
+  
   const handleRemove = (id: string) => {
     removeFromCart(id);
   };
