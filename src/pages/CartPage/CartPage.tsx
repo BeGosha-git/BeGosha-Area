@@ -1,17 +1,17 @@
 import React from 'react';
-import { useCart } from '../../context/CartContext/CartContext';
+import { useCart, Product } from '../../context/CartContext/CartContext';
 import CartItem from '../../component/CartItem/CartItem';
 import './CartPage.css'; // Импорт стилей
 
 const CartPage: React.FC = () => {
-  const { cart, removeFromCart } = useCart();
+  const { userCart, removeFromCart } = useCart();
 
   const handleRemove = (id: string) => {
     removeFromCart(id);
   };
 
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price, 0);
+    return userCart?.cart.reduce((total: number, item: Product) => total + item.price, 0) || 0;
   };
 
   const handleCheckout = () => {
@@ -23,11 +23,11 @@ const CartPage: React.FC = () => {
       <div className="cart-page">
         <div className="cart-items">
           <h1>Shopping Cart</h1>
-          {cart.length === 0 ? (
+          {userCart?.cart.length === 0 ? (
             <p>Your cart is empty!</p>
           ) : (
             <div>
-              {cart.map((item, index) => (
+              {userCart?.cart.map((item: Product, index: number) => (
                 <CartItem key={item.id} item={item} onRemove={handleRemove} />
               ))} 
               <h2>Total: ${calculateTotal().toFixed(2)}</h2>

@@ -4,12 +4,16 @@
 }
 
 .product-list {
+    color: aliceblue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #1976d286;
+    border-radius: 25px;
 }
 
 .product-list-page h1 {
+    color: aliceblue;
     font-size: 2rem;
     margin-bottom: 20px;
 }

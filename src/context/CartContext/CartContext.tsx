@@ -1,3 +1,13 @@
+/*const removeFromCart = (id: string) => {
+    setCart(prevCart => {
+        const index = prevCart.findIndex(item => item.id === id);
+        if (index === -1) return prevCart;
+        return [
+            ...prevCart.slice(0, index),
+            ...prevCart.slice(index + 1)
+        ];
+    });
+};*/
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export interface Product {
@@ -13,9 +23,14 @@ export interface Product {
     price: number;
 }
 
-interface CartContextType {
+interface UserCart {
+    userId: string;
     cart: Product[];
     favorites: Product[];
+}
+
+interface CartContextType {
+    userCart: UserCart | null;
     addToCart: (product: Product) => void;
     removeFromCart: (id: string) => void;
     addToFavorites: (product: Product) => void;
@@ -25,56 +40,76 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [cart, setCart] = useState<Product[]>(() => {
-        // Загрузка корзины и избранного из Local Storage
-        const savedCart = localStorage.getItem('cart');
-        return savedCart ? JSON.parse(savedCart) : [];
-    });
+    const userId = 'user123'; // User ID
 
-    const [favorites, setFavorites] = useState<Product[]>(() => {
-        // Загрузка корзины и избранного из Local Storage
-        const savedfavorites = localStorage.getItem('favorites');
-        return savedfavorites ? JSON.parse(savedfavorites) : [];
+    const getUserCart = () => {
+        const savedCart = localStorage.getItem(`cart_${userId}`);
+        return savedCart ? JSON.parse(savedCart) : [];
+    };
+
+    const getUserFavorites = () => {
+        const savedFavorites = localStorage.getItem(`favorites_${userId}`);
+        return savedFavorites ? JSON.parse(savedFavorites) : [];
+    };
+
+    const [userCart, setUserCart] = useState<UserCart>({
+        userId,
+        cart: getUserCart(),
+        favorites: getUserFavorites(),
     });
 
     useEffect(() => {
-        // Сохранение корзины и избранного в Local Storage
-        localStorage.setItem('cart', JSON.stringify(cart));
-        localStorage.setItem('favorites', JSON.stringify(cart));
-    }, [cart]);
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(userCart.cart));
+        localStorage.setItem(`favorites_${userId}`, JSON.stringify(userCart.favorites));
+    }, [userCart]);
 
     const addToCart = (product: Product) => {
-        setCart(prevCart => [...prevCart, product]);
+        setUserCart(prev => ({
+            ...prev,
+            cart: [...prev.cart, product],
+        }));
     };
 
     const removeFromCart = (id: string) => {
-        setCart(prevCart => {
-            const index = prevCart.findIndex(item => item.id === id);
-            if (index === -1) return prevCart;
-            return [
-                ...prevCart.slice(0, index),
-                ...prevCart.slice(index + 1)
-            ];
-        });
+        setUserCart(prev => ({
+            ...prev,
+            cart: prev.cart.filter((item, index) => item.id !== id || index !== prev.cart.length - 1), // Убедитесь, что удаляется только последний добавленный элемент с данным id
+        }));
     };
 
     const addToFavorites = (product: Product) => {
-        setFavorites((prev) => [...prev, product]);
-    }
+        setUserCart(prev => {
+            // Check if the product is already in the favorites
+            const alreadyExists = prev.favorites.some(favorite => favorite.id === product.id);
+            // Only add if it doesn't exist already
+            if (!alreadyExists) {
+                return {
+                    ...prev,
+                    favorites: [...prev.favorites, product],
+                };
+            }
+            return prev;
+        });
+    };
+
     const removeFromFavorites = (productId: string) => {
-        setFavorites((prev) => prev.filter(product => product.id !== productId));
-    }
+        setUserCart(prev => ({
+            ...prev,
+            favorites: prev.favorites.filter(product => product.id !== productId),
+        }));
+    };
 
     return (
-        <CartContext.Provider value={{ cart, favorites, addToCart, removeFromCart, addToFavorites, removeFromFavorites }}>
+        <CartContext.Provider value={{ userCart, addToCart, removeFromCart, addToFavorites, removeFromFavorites }}>
             {children}
         </CartContext.Provider>
     );
 };
 
+// Hook for using the context
 export const useCart = () => {
     const context = useContext(CartContext);
-    if (!context) {
+    if (context === undefined) {
         throw new Error('useCart must be used within a CartProvider');
     }
     return context;
