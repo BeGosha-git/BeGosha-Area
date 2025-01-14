@@ -1,7 +1,7 @@
 {
     "id": "1",
     "name": "Банан",
-    "image": ["image1.jpg", "image1.jpg", "image1.jpg"],
+    "product_images": ["image1.jpg", "image1.jpg", "image1.jpg"],
     "description": "Это описание продукта 1.",
     "feedback": [
         {

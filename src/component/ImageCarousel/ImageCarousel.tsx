@@ -1,44 +1,43 @@
 import React, { useState } from 'react';
-import './ImageCarousel.css'; // Импорт стилей для карусели
+import './ImageCarousel.css';
 
 interface ImageCarouselProps {
-    images: string[];
-    productName: string; // Новый пропс
+    product_images: string[];
+    productName: string;
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, productName }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ product_images, productName }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % product_images.length);
     };
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + product_images.length) % product_images.length);
     };
 
     return (
         <div className="carousel-container">
-            {images.length > 0 && (
-                <>
-                    <button className="carousel-button left" onClick={handlePrev}>
+            {product_images.length > 0 ? (
+                <div className="carousel-content">
+                    <button className="carousel-button left" onClick={handlePrev} aria-label="Предыдущее изображение">
                         &#9664;
                     </button>
-                    <div className="image-header">
-                        <h2>{productName}</h2> {/* Имя продукта */}
-                    </div>
                     <img
-                        src={require(`../../products/${images[currentIndex]}`)}
-                        alt={`Image ${currentIndex}`}
+                        src={require(`../../products/${productName}/${product_images[currentIndex]}`)}
+                        alt={`Картинка - ${currentIndex + 1} из ${product_images.length}`}
                         className="carousel-image"
                     />
-                    <button className="carousel-button right" onClick={handleNext}>
+                    <button className="carousel-button right" onClick={handleNext} aria-label="Следующее изображение">
                         &#9654;
                     </button>
-                </>
+                </div>
+            ) : (
+                <p>Загрузка изображений...</p>
             )}
         </div>
     );
-}
+};
 
 export default ImageCarousel;
