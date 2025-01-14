@@ -1,7 +1,8 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext/CartContext';
 import CartItem from '../../component/CartItem/CartItem';
-import '../../pages.css';
+import '../../pages.css'
+import './CartPage.css'; // Импорт стилей
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart } = useCart();
@@ -12,6 +13,11 @@ const CartPage: React.FC = () => {
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price, 0);
+  };
+
+  const handleCheckout = () => {
+    // Логика оформления заказа
+    alert('Спасибо за покупку!'); // Заглушка для оформления заказа
   };
 
   return (
@@ -26,6 +32,7 @@ const CartPage: React.FC = () => {
               <CartItem key={item.id} item={item} onRemove={handleRemove} />
             ))}
             <h2>Total: ${calculateTotal().toFixed(2)}</h2>
+            <button className="checkout-button" onClick={handleCheckout}>Оформить</button>
           </div>
         )}
       </div>
