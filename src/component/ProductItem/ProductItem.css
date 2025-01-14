@@ -1,4 +1,13 @@
-.ProductList {
-    margin: 0;
-    padding: 0;
-  }
+.product-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+}

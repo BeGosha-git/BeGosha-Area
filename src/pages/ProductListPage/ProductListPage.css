@@ -3,6 +3,12 @@
     text-align: center;
 }
 
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .product-list-page h1 {
     font-size: 2rem;
     margin-bottom: 20px;

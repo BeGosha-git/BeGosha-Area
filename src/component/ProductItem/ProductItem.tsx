@@ -1,28 +1,25 @@
-import React from "react";
-import {
-  AppBar,
-  //Avatar,
-  //Badge,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  //Tooltip,
-  Typography,
-} from "@mui/material";
-//import { Link } from "react-router-dom";
-//import MenuIcon from "@mui/icons-material/Menu";
-import './ProductList.css'
+import React from 'react';
+import './ProductItem.css';
 
-const ProductList = () => {
-  return (
-    <div className="ProductList">
+interface Product {
+    id: string;
+    name: string;
+    image: string;
+    info: string;
+}
 
-    </div>
-  );
-};
+interface ProductItemProps {
+    product: Product;
+}
 
-export default ProductList;
+const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+    return (
+        <div className="product-item">
+            <img src={product.image} alt={product.name} />
+            <h2>{product.name}</h2>
+            <a href={`products/${product.info}`}>Подробнее</a>
+        </div>
+    );
+}
+
+export default ProductItem;
