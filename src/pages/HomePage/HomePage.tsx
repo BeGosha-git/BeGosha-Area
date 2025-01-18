@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className='PageForm'>
       <main className="HomePage">
-          <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" />
           <p>
           Ожи<code>да</code>ние...
           </p>
