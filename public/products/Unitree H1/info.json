@@ -1,0 +1,19 @@
+{
+    "id": "1005",
+    "name": "Unitree H1",
+    "product_images": ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"],
+    "description": "Это Unitree H1.",
+    "feedback": [
+        {
+            "user": "Пользователь 1",
+            "comment": "Идеальный продукт!",
+            "rating": 5
+        },
+        {
+            "user": "BeGosha",
+            "comment": "Хорошее качество, но могла бы документация...",
+            "rating": 3
+        }
+    ],
+    "price" : 15000000
+}

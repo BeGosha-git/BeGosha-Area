@@ -1,5 +1,9 @@
 import React from 'react';
+
+//import { AuthProvider } from './context/AuthContext/AuthContext';
+//import { ProfileProvider } from './context/ProfileContext/ProfileContext';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 import Header from './component/Header/Header'
 
@@ -11,18 +15,17 @@ import ProductListPage from './pages/ProductListPage/ProductListPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import CartPage from './pages/CartPage/CartPage';
 
-import { AuthProvider } from './context/AuthContext/AuthContext';
-import Login from './component/Login/Login';
-import Register from './component/Register/Register';
-import Profile from './component/Profile/Profile';
+//import Login from './component/Login/Login';
+//import Register from './component/Register/Register';
+//import Profile from './component/Profile/Profile';
 
 import Footer from './component/Footer/Footer'
+
 
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
     <div className="App">
       <Router>
         <Header />
@@ -30,10 +33,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/profile1" element={<ProfilePage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfilePage />} />
 
             <Route path="/about-area" element={<AboutAreaPage />} />
             
@@ -47,7 +47,6 @@ const App: React.FC = () => {
         <Footer />
       </Router>
     </div>
-    </AuthProvider>
   );
 }
 

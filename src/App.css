@@ -17,7 +17,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #1A1A1A;
 }
 
 @keyframes App-logo-spin {
@@ -45,7 +45,7 @@
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 0rem;
-    background: #1976D2;
+    background: #060606;
 }
 ::-webkit-scrollbar-track {
     background: transparent;

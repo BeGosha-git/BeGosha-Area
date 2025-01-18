@@ -1,12 +1,12 @@
 import React from 'react';
 import { Product } from '../../context/CartContext/CartContext';
-import './CartItem.css'; // Импорт стилей
+import './CartItem.css';
 
 interface CartItemProps {
-    item: Product & { quantity: number }; // Убедитесь, что quantity отражается в props
+    item: Product & { quantity: number };
     onRemove: (id: string) => void;
-    onIncrease: (id: string) => void; // Новая функция для увеличения
-    onDecrease: (id: string) => void; // Новая функция для уменьшения
+    onIncrease: (id: string) => void;
+    onDecrease: (id: string) => void;
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item, onRemove, onIncrease, onDecrease }) => {

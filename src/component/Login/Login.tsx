@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext/AuthContext';
+import { useProfile } from '../../context/ProfileContext/ProfileContext';
 
 const Login: React.FC = () => {
-  const { login } = useAuth();
+  const { login } = useProfile();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -12,7 +12,7 @@ const Login: React.FC = () => {
     setError(''); // Сбросьте ошибки перед входом
     try {
       await login(username, password);
-      window.location.href = '/profile'; // Перенаправление на страницу профиля
+      //window.location.href = '/profile'; // Перенаправление на страницу профиля
     } catch (err) {
       // Уточните, что `err` может быть `Error`
       if (err instanceof Error) {

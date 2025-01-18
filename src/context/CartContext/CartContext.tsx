@@ -1,16 +1,5 @@
-/*const removeFromCart = (id: string) => {
-    setCart(prevCart => {
-        const index = prevCart.findIndex(item => item.id === id);
-        if (index === -1) return prevCart;
-        return [
-            ...prevCart.slice(0, index),
-            ...prevCart.slice(index + 1)
-        ];
-    });
-};*/
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Обновленный интерфейс Product
 export interface Product {
     id: string;
     name: string;
@@ -25,11 +14,11 @@ export interface Product {
     quantity?: number; // Добавлено
 }
 
-// Обновленный UserCart
 interface UserCart {
     userId: string;
     cart: Array<Product & { quantity: number }>; // Количество добавлено в корзину
     favorites: Product[];
+    purchaseHistory: Array<{ products: Array<Product & { quantity: number }>; date: string }>; // История покупок
 }
 
 interface CartContextType {
@@ -38,65 +27,62 @@ interface CartContextType {
     removeFromCart: (id: string) => void;
     addToFavorites: (product: Product) => void;
     removeFromFavorites: (id: string) => void;
+    checkout: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const userId = 'user123'; // User ID
-
+    const userId = 'user123';
     const getUserCart = () => {
         const savedCart = localStorage.getItem(`cart_${userId}`);
         return savedCart ? JSON.parse(savedCart) : [];
     };
-
     const getUserFavorites = () => {
         const savedFavorites = localStorage.getItem(`favorites_${userId}`);
         return savedFavorites ? JSON.parse(savedFavorites) : [];
+    };
+    const getPurchaseHistory = () => {
+        const savedHistory = localStorage.getItem(`purchaseHistory_${userId}`);
+        return savedHistory ? JSON.parse(savedHistory) : [];
     };
 
     const [userCart, setUserCart] = useState<UserCart>({
         userId,
         cart: getUserCart(),
         favorites: getUserFavorites(),
+        purchaseHistory: getPurchaseHistory(),
     });
 
     useEffect(() => {
         localStorage.setItem(`cart_${userId}`, JSON.stringify(userCart.cart));
         localStorage.setItem(`favorites_${userId}`, JSON.stringify(userCart.favorites));
+        localStorage.setItem(`purchaseHistory_${userId}`, JSON.stringify(userCart.purchaseHistory)); // Сохраняем историю покупок
     }, [userCart]);
 
     const addToCart = (product: Product) => {
         setUserCart(prev => {
             const existingProductIndex = prev.cart.findIndex(item => item.id === product.id);
-            
             if (existingProductIndex >= 0) {
-                // Если продукт уже есть, увеличиваем количество.
                 const updatedCart = [...prev.cart];
                 updatedCart[existingProductIndex].quantity! += 1;
                 return { ...prev, cart: updatedCart };
             } else {
-                // Иначе добавляем новый продукт с количеством 1.
                 return { ...prev, cart: [...prev.cart, { ...product, quantity: 1 }] };
             }
         });
     };
-    
+
     const removeFromCart = (id: string) => {
         setUserCart(prev => {
             const existingProductIndex = prev.cart.findIndex(item => item.id === id);
-            
             if (existingProductIndex === -1) return prev;
-            
             const updatedCart = [...prev.cart];
             const currentQuantity = updatedCart[existingProductIndex].quantity!;
-            
             if (currentQuantity > 1) {
-                // Уменьшаем количество товара, если оно больше 1.
                 updatedCart[existingProductIndex].quantity! -= 1;
                 return { ...prev, cart: updatedCart };
             } else {
-                // Если количество товара 1, удаляем его из корзины.
                 return { ...prev, cart: updatedCart.filter(item => item.id !== id) };
             }
         });
@@ -104,9 +90,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const addToFavorites = (product: Product) => {
         setUserCart(prev => {
-            // Check if the product is already in the favorites
             const alreadyExists = prev.favorites.some(favorite => favorite.id === product.id);
-            // Only add if it doesn't exist already
             if (!alreadyExists) {
                 return {
                     ...prev,
@@ -124,8 +108,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }));
     };
 
+    const checkout = () => {
+        // Сохранение покупок в историю
+        const purchaseRecord = {
+            products: userCart.cart,
+            date: new Date().toLocaleString(),
+        };
+
+        setUserCart(prev => ({
+            ...prev,
+            purchaseHistory: [...prev.purchaseHistory, purchaseRecord],
+            cart: [], // Очищаем корзину после оформления заказа
+        }));
+    };
+
     return (
-        <CartContext.Provider value={{ userCart, addToCart, removeFromCart, addToFavorites, removeFromFavorites }}>
+        <CartContext.Provider value={{ userCart, addToCart, removeFromCart, addToFavorites, removeFromFavorites, checkout }}>
             {children}
         </CartContext.Provider>
     );

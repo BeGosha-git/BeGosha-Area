@@ -3,8 +3,8 @@
     align-items: center;
     padding: 1rem;
     border: 1px solid #1976D2;
-    border-radius: 8px;
-    background-color: #1976d286; /* Основной цвет фона */
+    border-radius: 25px;
+    background-color: #1976d286;
     transition: box-shadow 0.3s;
     margin-bottom: 1rem; 
 }
@@ -14,7 +14,7 @@
 }
 
 .cart-item img {
-    width: 100px; /* Дайте желаемый размер */
+    width: 100px; 
     height: auto;
     border-radius: 8px;
     margin-right: 1rem;
@@ -22,7 +22,7 @@
 
 .cart-item h3 {
     margin: 0 0 0.5rem;
-    color: white; /* Основной цвет текста */
+    color: white;
 }
 
 .cart-item p {
@@ -37,31 +37,31 @@
 }
 
 .quantity-control button {
-    background-color: #1976D2; /* Основной цвет кнопок */
+    background-color: #1976D2;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .quantity-control button:hover {
-    background-color: #125b93; /* Более темный цвет для эффекта наведения */
+    background-color: #125b93;
 }
 
 .quantity-control input {
-    width: 50px; /* Ширина поля для ввода количества */
+    width: 50px;
     text-align: center;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 25px;
 }
 
 button {
-    background-color: #FF3D00; /* Цвет кнопки удаления */
-    color: white;
+    background-color: #FF3D00;
+    color: #1976d286;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s;

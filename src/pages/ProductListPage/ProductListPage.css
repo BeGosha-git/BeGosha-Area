@@ -1,19 +1,18 @@
-.product-list-page {
-    padding: 20px;
-    text-align: center;
-}
-
 .product-list {
     color: aliceblue;
     display: flex;
     flex-wrap: wrap;
+    padding-top: 5vh;
+    align-items: center;
     justify-content: center;
-    background-color: #1976d286;
-    border-radius: 25px;
 }
 
-.product-list-page h1 {
-    color: aliceblue;
-    font-size: 2rem;
-    margin-bottom: 20px;
+.product-item {
+    transition: transform 0.3s ease;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.product-item:hover {
+    transform: scale(1.12);
 }

@@ -17,8 +17,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import './Header.css'
 
-const pages = ["Profile", "About Area", "Products", "Cart"];
-const title_version = "BeGosha Area 1.2.9";
+const pages = ["Profile", "About Area", "Products", "Cart"];//, "login", "Register"
+const title_version = "BeGosha Area 1.2.95";
 const Header = () => {
   /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -46,7 +46,7 @@ const Header = () => {
     };*/
   return (
     <div className="Header">
-      <AppBar position="fixed">
+      <AppBar position="fixed"  style={{background: '#060606'}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -60,7 +60,7 @@ const Header = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "inherit",
+                color: "#FDFDFD",
                 textDecoration: "none",
               }}
             >
@@ -124,7 +124,7 @@ const Header = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "inherit",
+                color: "#FDFDFD",
                 textDecoration: "none",
               }}
             >
@@ -139,7 +139,7 @@ const Header = () => {
                   component="a"
                   href={`/${page.toLowerCase()}`}
                   onClick={handleOpenNavMenu}
-                  sx={{ my: 2, color: "inherit", display: "block" }}
+                  sx={{ my: 2, color: "#FDFDFD", display: "block" }}
                 >
                   {page}
                 </Button>

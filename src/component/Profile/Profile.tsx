@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAuth } from '../../context/AuthContext/AuthContext';
+import { useProfile } from '../../context/ProfileContext/ProfileContext';
 
 const Profile: React.FC = () => {
-  const { user, logout } = useAuth();
-
+  const { user, logout } = useProfile();
+  console.log(user)
   if (!user) {
     return (
       <div>

@@ -9,7 +9,6 @@ interface User {
 // Определите типы контекста
 interface AuthContextType {
   user: User | null;
-  users: User[]; // Массив зарегистрированных пользователей
   login: (username: string, password: string) => Promise<void>;
   register: (username: string, email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -51,7 +50,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   };
 
   return (
-    <AuthContext.Provider value={{ user, users, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

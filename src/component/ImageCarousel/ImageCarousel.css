@@ -3,41 +3,44 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  max-width: 600px; /* Максимальная ширина карусели */
-  margin: 0 auto; /* Центровка по горизонтали */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .carousel-content {
-  display: flex; /* Для выравнивания кнопок и изображения */
+  display: flex;
   align-items: center;
 }
 
 .carousel-image {
-  width: 100%; /* Адаптивная ширина для изображения */
-  height: auto; /* Логичная высота */
-  border-radius: 8px; /* Закругление углов */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для эффекта */
+  width: auto;
+  height: auto;
+  min-width: 20vw;
+  min-height: 30vw;
+  max-height: 50vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button {
-  background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
-  border: none; /* Без рамки */
-  border-radius: 50%; /* Кнопки в форме круга */
-  padding: 10px; /* Внутренние отступы */
-  cursor: pointer; /* Курсор в виде руки */
-  font-size: 24px; /* Размер стрелок */
-  transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 10%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .carousel-button:hover {
-  background-color: rgba(255, 255, 255, 1); /* Изменяем фон при наведении */
-  transform: scale(1.1); /* Увеличиваем кнопку */
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
 }
 
 .carousel-button.left {
-  margin-right: 10px; /* Отступ между кнопкой и изображением */
+  margin-right: 10px;
 }
 
 .carousel-button.right {
-  margin-left: 10px; /* Отступ между кнопкой и изображением */
+  margin-left: 10px;
 }

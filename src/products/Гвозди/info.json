@@ -1,0 +1,19 @@
+{
+    "id": "1004",
+    "name": "Гвозди",
+    "product_images": ["image1.jpg", "image2.jpg", "image3.jpg"],
+    "description": "Это описание продукта Гвозди.",
+    "feedback": [
+        {
+            "user": "Пользователь 1",
+            "comment": "Пока держаться!",
+            "rating": 5
+        },
+        {
+            "user": "Пользователь 2",
+            "comment": "Железо не экологично.",
+            "rating": 1
+        }
+    ],
+    "price" : 50
+}

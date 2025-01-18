@@ -20,7 +20,7 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <div className="Footer">
-      <AppBar position="static">
+      <AppBar position="static" style={{background: '#060606'}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -34,7 +34,7 @@ const Footer = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "inherit",
+                color: "#FDFDFD",
                 textDecoration: "none",
               }}
             >
@@ -55,7 +55,7 @@ const Footer = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "inherit",
+                color: "#FDFDFD",
                 textDecoration: "none",
               }}
             >

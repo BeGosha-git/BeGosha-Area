@@ -4,7 +4,7 @@ import CartItem from '../../component/CartItem/CartItem';
 import './CartPage.css'; // Импорт стилей
 
 const CartPage: React.FC = () => {
-    const { userCart, removeFromCart, addToCart } = useCart();
+    const { userCart, removeFromCart, addToCart, checkout } = useCart();
 
     const handleRemove = (id: string) => {
         removeFromCart(id);
@@ -23,6 +23,7 @@ const CartPage: React.FC = () => {
     };
 
     const handleCheckout = () => {
+        checkout();
         alert('Спасибо за покупку!');
     };
 

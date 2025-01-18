@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext/AuthContext';
+import { useProfile } from '../../context/ProfileContext/ProfileContext';
 
 const Register: React.FC = () => {
-  const { register } = useAuth(); // Используем метод регистрации
+  const { register } = useProfile(); // Используем метод регистрации
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ const Register: React.FC = () => {
     setError('');
     try {
       await register(username, email, password); // Регистрация пользователя
-      window.location.href = '/profile'; // Перенаправление на страницу профиля
+      //window.location.href = '/profile'; // Перенаправление на страницу профиля
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message); // Обработка ошибки

@@ -1,19 +1,19 @@
 {
     "id": "1002",
     "name": "Огурец",
-    "product_images": ["image1.jpg", "image1.jpg", "image1.jpg"],
-    "description": "Это описание продукта 2.",
+    "product_images": ["image1.jpg", "image2.jpg", "image3.jpg"],
+    "description": "Это не описание продукта Огурец.",
     "feedback": [
         {
             "user": "Пользователь 1",
-            "comment": "Отличный продукт!",
+            "comment": "Плохой продукт!",
             "rating": 1
         },
         {
             "user": "Пользователь 2",
-            "comment": "Хорошее качество, но могла бы быть дешевле.",
+            "comment": "Плохо выглядит.",
             "rating": 1
         }
     ],
-    "price" : 500
+    "price" : 100
 }
