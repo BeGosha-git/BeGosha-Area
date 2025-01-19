@@ -9,10 +9,12 @@
 
 .product-item {
     transition: transform 0.3s ease;
+    box-shadow: 0 0 20px #090909;
     margin-right: 15px;
     margin-left: 15px;
 }
 
 .product-item:hover {
     transform: scale(1.12);
+    box-shadow: 0 0 50px #060606;
 }

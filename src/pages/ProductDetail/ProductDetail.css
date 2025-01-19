@@ -1,33 +1,6 @@
-.buttons-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.add-to-cart-button,
-.add-to-favorites-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.add-to-cart-button {
-  background-color: #4CAF50; /* Зеленый цвет */
-  color: white;
-}
-
-.add-to-favorites-button {
-  background-color: #1976d286; /* Оранжевый цвет */
-  color: white;
-}
-
-.add-to-cart-button:hover {
-  background-color: #45a049;
-}
-
-.add-to-favorites-button:hover {
-  background-color: #e64a19;
+.padding_margin {
+  margin-top: 4vh;
+  margin-bottom: 6vh;
+  padding-top: 0;
+  padding-bottom: 0;
 }

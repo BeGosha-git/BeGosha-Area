@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './ImageCarousel.css';
+import { Box, IconButton, CircularProgress, Typography } from '@mui/material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
+import './ImageCarousel.css'
 
 interface ImageCarouselProps {
     product_images: string[];
@@ -18,25 +20,58 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ product_images, productNa
     };
 
     return (
-        <div className="carousel-container">
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
             {product_images.length > 0 ? (
-                <div className="carousel-content">
-                    <button className="carousel-button left" onClick={handlePrev} aria-label="Предыдущее изображение">
-                        &#9664;
-                    </button>
-                    <img
+                <>
+                    <IconButton
+                        onClick={handlePrev}
+                        sx={{
+                            position: 'absolute',
+                            left: 0,
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            backgroundColor: '#ADADAD',
+                            '&:hover': {
+                                backgroundColor: '#FDFDFD',
+                            },
+                        }}
+                        aria-label="Предыдущее изображение"
+                    >
+                        <ArrowBack />
+                    </IconButton>
+                    
+                    <img className='carousel-image'
                         src={require(`../../products/${productName}/${product_images[currentIndex]}`)}
                         alt={`Картинка - ${currentIndex + 1} из ${product_images.length}`}
-                        className="carousel-image"
+                        style={{
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                            maxWidth: '80%',
+                            maxHeight: '70vh',
+                        }}
                     />
-                    <button className="carousel-button right" onClick={handleNext} aria-label="Следующее изображение">
-                        &#9654;
-                    </button>
-                </div>
+
+                    <IconButton
+                        onClick={handleNext}
+                        sx={{
+                            position: 'absolute',
+                            right: 0,
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            backgroundColor: '#ADADAD',
+                            '&:hover': {
+                                backgroundColor: '#FDFDFD',
+                            },
+                        }}
+                        aria-label="Следующее изображение"
+                    >
+                        <ArrowForward />
+                    </IconButton>
+                </>
             ) : (
-                <p>Загрузка изображений...</p>
+                <CircularProgress color="inherit" />
             )}
-        </div>
+        </Box>
     );
 };
 

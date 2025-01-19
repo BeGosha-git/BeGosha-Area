@@ -1,72 +1,20 @@
-.cart-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid #1976D2;
-    border-radius: 25px;
-    background-color: #1976d286;
-    transition: box-shadow 0.3s;
-    margin-bottom: 1rem; 
+.cart-item{
+    transition: transform 0.5s ease;
+    color: #FDFDFD;
+    box-shadow: 0 0 20px #060606;
 }
-
 .cart-item:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    box-shadow: 0 0 50px #060606;
 }
 
-.cart-item img {
-    width: 100px; 
-    height: auto;
-    border-radius: 8px;
-    margin-right: 1rem;
+.cart_button{
+    transition: transform 1.0s ease;
+    color: #FDFDFD;
 }
 
-.cart-item h3 {
-    margin: 0 0 0.5rem;
-    color: white;
-}
-
-.cart-item p {
-    margin: 0 0 0.5rem;
-    color: aliceblue; /* Цвет для цены */
-}
-
-.quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Отступ между элементами */
-}
-
-.quantity-control button {
-    background-color: #1976D2;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.quantity-control button:hover {
-    background-color: #125b93;
-}
-
-.quantity-control input {
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-}
-
-button {
-    background-color: #FF3D00;
-    color: #1976d286;
-    border: none;
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #c62828; /* Темный цвет для удаления */
+.cart_button:hover {
+    box-shadow: 0 0px 10px #060606;
+    transform: scale(1.3);
 }
