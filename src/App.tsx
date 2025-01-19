@@ -5,21 +5,21 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
-import Header from './component/Header/Header'
+import Header from './component/Header'
 
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import HomePage from './pages/HomePage/HomePage'
 import AboutAreaPage from './pages/AboutAreaPage/AboutAreaPage'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
-import ProductListPage from './pages/ProductListPage/ProductListPage'
-import ProductDetail from './pages/ProductDetail/ProductDetail';
+import ProductListPage from './pages/ProductListPage'
+import ProductDetail from './pages/ProductDetail';
 import CartPage from './pages/CartPage/CartPage';
 
 //import Login from './component/Login/Login';
 //import Register from './component/Register/Register';
 //import Profile from './component/Profile/Profile';
 
-import Footer from './component/Footer/Footer'
+import Footer from './component/Footer'
 
 
 import './App.css';

@@ -13,13 +13,11 @@ import {
   Typography,
 } from "@mui/material";
 
-import "./Footer.css"
 //import { Link } from "react-router-dom";
 //import MenuIcon from "@mui/icons-material/Menu";
 
 const Footer = () => {
   return (
-    <div className="Footer">
       <AppBar position="static" style={{background: '#060606'}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -36,6 +34,8 @@ const Footer = () => {
                 letterSpacing: ".3rem",
                 color: "#FDFDFD",
                 textDecoration: "none",
+                transition: "transform 1.0s ease-in-out",
+                "&:hover": { transform: "scale3d(1.02, 1.02, 1)", color: "#FEFEFE", backgroundColor: 'transparent' },
               }}
             >
               BeGosha Area
@@ -64,7 +64,6 @@ const Footer = () => {
           </Toolbar>
         </Container>
       </AppBar>
-    </div>
   );
 };
 

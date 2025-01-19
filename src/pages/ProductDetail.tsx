@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ImageCarousel from '../../component/ImageCarousel/ImageCarousel';
+import ImageCarousel from '../component/ImageCarousel';
 import { Button, Container, Typography, CircularProgress, Box } from '@mui/material';
-import { useCart } from '../../context/CartContext/CartContext';
-import '../../pages.css';
-import './ProductDetail.css';
+import { useCart } from '../context/CartContext/CartContext';
+import '../pages.css';
 
 export interface Product {
     id: string;
@@ -26,7 +25,7 @@ const ProductDetail: React.FC = () => {
 
     useEffect(() => {
         const fetchProductData = async () => {
-            const response = await fetch(`../../products/${productName}/info.json`);
+            const response = await fetch(`../products/${productName}/info.json`);
             const data: Product = await response.json();
             setProduct(data);
         };
@@ -53,18 +52,21 @@ const ProductDetail: React.FC = () => {
 
     return (
         <div className='PageForm'>
-            <div className='padding_margin'>
-            <Container sx={{ bgcolor: '#1A1A1A', padding: 4, borderRadius: 2, boxShadow: 3 }}>
+            <Container sx={{
+                bgcolor: '#060606', padding: 4, borderRadius: 2, boxShadow: 3,
+                marginTop: '4vh',
+                marginBottom: '6vh',
+            }}>
                 {product ? (
                     <>
                         <Typography variant="h4"
-                         align="center" sx={{
-                            mr: -2,
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".1rem",
-                            color: "#FDFDFD",
-                            textDecoration: "none",
+                            align="center" sx={{
+                                mr: -2,
+                                fontFamily: "monospace",
+                                fontWeight: 700,
+                                letterSpacing: ".1rem",
+                                color: "#FDFDFD",
+                                textDecoration: "none",
                             }} >{product.name}</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
                             <ImageCarousel product_images={product.product_images} productName={product.name} />
@@ -76,8 +78,8 @@ const ProductDetail: React.FC = () => {
                             letterSpacing: ".1rem",
                             color: "#FDFDFD",
                             textDecoration: "none",
-                            }}>{product.description}</Typography>
-                        <Typography variant="h6" 
+                        }}>{product.description}</Typography>
+                        <Typography variant="h6"
                             sx={{
                                 marginTop: 2,
                                 mr: -2,
@@ -86,10 +88,10 @@ const ProductDetail: React.FC = () => {
                                 letterSpacing: ".1rem",
                                 color: "#FDFDFD",
                                 textDecoration: "none",
-                                }}>Отзывы</Typography>
+                            }}>Отзывы</Typography>
                         <ul style={{ listStyleType: 'none', padding: 0 }}>
                             {product.feedback.map((feedback, index) => (
-                                <li key={index} style={{backgroundColor: '#010203', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
+                                <li key={index} style={{ backgroundColor: '#010203', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
                                     <strong>{feedback.user}:</strong> {feedback.comment} - {'★'.repeat(feedback.rating)}
                                 </li>
                             ))}
@@ -105,7 +107,6 @@ const ProductDetail: React.FC = () => {
                     </Box>
                 )}
             </Container>
-            </div>
         </div>
     );
 };

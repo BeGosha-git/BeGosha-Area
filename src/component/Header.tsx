@@ -13,40 +13,38 @@ import {
   //Tooltip,
   Typography,
 } from "@mui/material";
-//import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import './Header.css'
 
 const pages = ["Profile", "About Area", "Products", "Cart"];//, "login", "Register"
-const title_version = "BeGosha Area 1.2.96";
+const title_version = "BeGosha Area 1.2.97";
 const Header = () => {
   /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
     );*/
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-      null
-    );
-    /*const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-      null
-    );
-    const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorNav(event.currentTarget);
-    };*/
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElNav(event.currentTarget);
-    };
-    /*const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElUser(event.currentTarget);
-    };*/
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
-    /*const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };*/
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  /*const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
+  const handleNewMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorNav(event.currentTarget);
+  };*/
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  /*const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };*/
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  /*const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };*/
   return (
     <div className="Header">
-      <AppBar position="fixed"  style={{background: '#060606'}}>
+      <AppBar position="fixed" style={{ background: '#060606' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -62,8 +60,9 @@ const Header = () => {
                 letterSpacing: ".3rem",
                 color: "#FDFDFD",
                 textDecoration: "none",
-              }}
-            >
+                transition: "transform 1.0s ease-in-out",
+                "&:hover": { transform: "scale3d(1.02, 1.02, 1)", color: "#FEFEFE", backgroundColor: 'transparent' },
+              }}>
               {title_version}
             </Typography>
 
@@ -74,8 +73,7 @@ const Header = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
-              >
+                color="inherit">
                 <MenuIcon />
               </IconButton>
               <Menu
@@ -94,18 +92,14 @@ const Header = () => {
                 onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: "block", md: "none" },
-                }}
-              >
+                }}>
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
-                      /*component={Link}
-                      to={`/${page.toLowerCase()}`}*/
                       noWrap
                       component="a"
-                      href={`/${page.toLowerCase()}`}
-                    >
+                      href={`/${page.toLowerCase()}`}>
                       {page}
                     </Typography>
                   </MenuItem>
@@ -126,21 +120,21 @@ const Header = () => {
                 letterSpacing: ".3rem",
                 color: "#FDFDFD",
                 textDecoration: "none",
-              }}
-            >
+              }}>
               {title_version}
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  /*component={Link}
-                  to={`/${page.toLowerCase()}`}*/
                   component="a"
                   href={`/${page.toLowerCase()}`}
                   onClick={handleOpenNavMenu}
-                  sx={{ my: 2, color: "#FDFDFD", display: "block" }}
-                >
+                  sx={{
+                    my: 2, color: "#FDFDFD", display: "block",
+                    transition: "transform 0.5s ease",
+                    "&:hover": { transform: "scale3d(1.03, 1.03, 1)", color: "#FEFEFE", backgroundColor: 'transparent' },
+                  }}>
                   {page}
                 </Button>
               ))}

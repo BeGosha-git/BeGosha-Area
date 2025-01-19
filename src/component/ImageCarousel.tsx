@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, IconButton, CircularProgress, Typography } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
-import './ImageCarousel.css'
 
 interface ImageCarouselProps {
     product_images: string[];
@@ -27,27 +26,28 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ product_images, productNa
                         onClick={handlePrev}
                         sx={{
                             position: 'absolute',
-                            left: 0,
-                            top: '50%',
-                            transform: 'translateY(-50%)',
+                            left: '-50px',
+                            transition: "transform 0.8s ease",
                             backgroundColor: '#ADADAD',
                             '&:hover': {
                                 backgroundColor: '#FDFDFD',
+                                transform: 'scale(1.2)',
                             },
                         }}
                         aria-label="Предыдущее изображение"
                     >
                         <ArrowBack />
                     </IconButton>
-                    
-                    <img className='carousel-image'
-                        src={require(`../../products/${productName}/${product_images[currentIndex]}`)}
+
+                    <img
+                        src={require(`../products/${productName}/${product_images[currentIndex]}`)}
                         alt={`Картинка - ${currentIndex + 1} из ${product_images.length}`}
                         style={{
                             borderRadius: '8px',
                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                            maxWidth: '80%',
-                            maxHeight: '70vh',
+                            maxWidth: '100%',
+                            minWidth: 'auto',
+                            height: '70vh',
                         }}
                     />
 
@@ -55,12 +55,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ product_images, productNa
                         onClick={handleNext}
                         sx={{
                             position: 'absolute',
-                            right: 0,
-                            top: '50%',
-                            transform: 'translateY(-50%)',
+                            right: '-50px',
+                            transition: "transform 0.8s ease",
                             backgroundColor: '#ADADAD',
                             '&:hover': {
                                 backgroundColor: '#FDFDFD',
+                                transform: 'scale(1.2)',
                             },
                         }}
                         aria-label="Следующее изображение"

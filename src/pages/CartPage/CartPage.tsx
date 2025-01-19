@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCart, Product } from '../../context/CartContext/CartContext';
-import {CartItem} from '../../component/CartItem/CartItem';
+import {CartItem} from '../../component/CartItem';
 import { Box, Button, Typography, List, ListItem } from '@mui/material';
 import '../../pages.css';
 import './CartPage.css';
@@ -39,7 +39,11 @@ const CartPage: React.FC = () => {
             </Typography>
             <Box sx={{ width: '100%', maxWidth: 600, margin: '0 auto' }}>
                 {userCart?.cart.length === 0 ? (
-                    <Typography variant="body1" align="center">
+                    <Typography variant="body1" align="center" sx={{ 
+                        mb: 1,
+                        fontFamily: "monospace",
+                        fontWeight: 700,
+                        letterSpacing: ".3rem", }}>
                         Ваша корзина пуста!
                     </Typography>
                 ) : (
