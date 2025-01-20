@@ -1,13 +1,12 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import '../../pages.css';
-import './NotFoundPage.css';
+import '../pages.css';
 
 const NotFoundPage = () => {
     return (
         <div className='PageForm'>
-            <Box className="page-not-found">
+            <Box sx={{textAlign: 'center'}}>
                 <Typography className="page-not-found__title" variant="h1" component="h1">
                     Oops!
                 </Typography>

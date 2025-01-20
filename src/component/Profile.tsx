@@ -1,5 +1,5 @@
 import React from 'react';
-import { useProfile } from '../../context/ProfileContext/ProfileContext';
+import { useProfile } from '../context/ProfileContext';
 
 const Profile: React.FC = () => {
   const { user, logout } = useProfile();

@@ -1,53 +1,114 @@
 import React from 'react';
-
-//import { AuthProvider } from './context/AuthContext/AuthContext';
-//import { ProfileProvider } from './context/ProfileContext/ProfileContext';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { motion } from 'framer-motion';
 
-
-import Header from './component/Header'
-
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
-import HomePage from './pages/HomePage/HomePage'
-import AboutAreaPage from './pages/AboutAreaPage/AboutAreaPage'
-import ProfilePage from './pages/ProfilePage/ProfilePage'
-import ProductListPage from './pages/ProductListPage'
+import Header from './component/Header';
+import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './pages/HomePage';
+import AboutAreaPage from './pages/AboutAreaPage/AboutAreaPage';
+import ProfilePage from './pages/ProfilePage';
+import ProductListPage from './pages/ProductListPage';
 import ProductDetail from './pages/ProductDetail';
-import CartPage from './pages/CartPage/CartPage';
-
-//import Login from './component/Login/Login';
-//import Register from './component/Register/Register';
-//import Profile from './component/Profile/Profile';
-
-import Footer from './component/Footer'
-
+import CartPage from './pages/CartPage';
+import Footer from './component/Footer';
+import VideoAnimation from './component/VideoAnimation';
 
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
+      <VideoAnimation />
       <Router>
         <Header />
-        <div className="pages">
+        <div className='pages'>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-
-            <Route path="/profile" element={<ProfilePage />} />
-
-            <Route path="/about-area" element={<AboutAreaPage />} />
-            
-            <Route path="/products" element={<ProductListPage />} />
-            <Route path="/products/:productName" element={<ProductDetail />} /> 
-            <Route path="/cart" element={<CartPage />} /> 
-            
+            <Route
+              path="/"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <HomePage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <ProfilePage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/about area"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <AboutAreaPage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/products"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <ProductListPage />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/products/:productName"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <ProductDetail />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <motion.div
+                  initial={{ y: '-150vh' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '-150vh' }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <CartPage />
+                </motion.div>
+              }
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
-        <Footer />
+          <Footer />
       </Router>
     </div>
   );
 }
+
 
 export default App;

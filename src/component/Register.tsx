@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useProfile } from '../../context/ProfileContext/ProfileContext';
+import { useProfile } from '../context/ProfileContext';
 
 const Register: React.FC = () => {
   const { register } = useProfile(); // Используем метод регистрации

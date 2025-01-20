@@ -1,11 +1,11 @@
 import React from 'react';
-import { Product } from '../context/CartContext/CartContext';
+import { Product } from '../context/CartContext';
 import {
     Card,
     CardContent,
     CardMedia,
     Typography,
-    Button,
+    //Button,
     Box,
     IconButton,
 } from '@mui/material';
@@ -24,7 +24,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onRemove, onIncrease, 
         <Card sx={{
             display: 'flex', paddingLeft: '5px', width: '100%', backgroundColor: '#060606', color: '#FDFDFD',
             alignItems: 'center', mb: 2, borderRadius: '16px', boxShadow: '0 0 20px #060606',
-            transition: "transform 0.8s ease",
+            transition: "transform 0.8s ease, box-shadow 0.5s ease",
             "&:hover": { transform: "scale(1.2)", boxShadow: '0 0 40px #060606' },
         }}>
             <Link to={`/products/${encodeURIComponent(item.name)}`} style={{ textDecoration: "none" }}>
@@ -51,7 +51,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onRemove, onIncrease, 
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <IconButton sx={{
-                        transition: "transform 0.8s ease", color: '#FDFDFD',
+                        transition: "transform 0.8s ease, box-shadow 0.5s ease", color: '#FDFDFD',
                         "&:hover": { transform: "scale(1.4)", boxShadow: '0 0 10px #060606', color: '#FEFEFE' }
                     }}
                         onClick={() => onDecrease(item.id)} aria-label="decrease quantity">
@@ -65,7 +65,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onRemove, onIncrease, 
                     }}>
                         {item.quantity}</Typography>
                     <IconButton sx={{
-                        transition: "transform 0.8s ease", color: '#FDFDFD',
+                        transition: "transform 0.8s ease, box-shadow 0.5s ease", color: '#FDFDFD',
                         "&:hover": { transform: "scale(1.3)", boxShadow: '0 0 10px #060606', color: '#FEFEFE' }
                     }}
                         onClick={() => onIncrease(item.id)} aria-label="increase quantity">

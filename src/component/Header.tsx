@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area", "Products", "Cart"];//, "login", "Register"
-const title_version = "BeGosha Area 1.2.97";
+const title_version = "BeGosha Area 1.2.98";
 const Header = () => {
   /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -43,8 +43,8 @@ const Header = () => {
     setAnchorElUser(null);
   };*/
   return (
-    <div className="Header">
-      <AppBar position="fixed" style={{ background: '#060606' }}>
+    <div className="Header" >
+      <AppBar position="fixed" style={{ background: '#060606', zIndex: 9999 }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography

@@ -18,7 +18,7 @@ import {
 
 const Footer = () => {
   return (
-      <AppBar position="static" style={{background: '#060606'}}>
+      <AppBar position="static" style={{background: '#060606', zIndex: 9999}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography

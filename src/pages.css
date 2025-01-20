@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  z-index: 1;
 }
 
 code {
@@ -15,11 +16,7 @@ code {
 .PageForm {
   min-height: 95vh;
   color: #FDFDFD;
-}
-
-.BottomInfo {
-  margin: 0;
-  padding: 0;
+  z-index: 2;
 }
 
 .container {

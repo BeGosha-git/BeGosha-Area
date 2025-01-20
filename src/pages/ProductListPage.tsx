@@ -3,7 +3,6 @@ import React from 'react'
 //import { Link } from 'react-router-dom'
 import {
     Box,
-    Link,
     Typography,
 } from "@mui/material";
 import '../pages.css';
@@ -63,7 +62,7 @@ const ProductListPage: React.FC = () => {
                                 marginLeft: '15px',
                                 marginBottom: '30px',
                                 width: '16vw',
-                                transition: 'transform 0.8s ease',
+                                transition: 'transform 0.8s ease, box-shadow 0.5s ease',
                                 boxShadow: '0 0 20px #090909',
                                 "&:hover": { transform: "scale(1.12)", boxShadow: '0 0 50px #060606', color: '#FEFEFE' }
                             }}

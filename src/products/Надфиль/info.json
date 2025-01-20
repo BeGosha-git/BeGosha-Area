@@ -1,7 +1,7 @@
 {
     "id": "1006",
     "name": "Надфиль",
-    "product_images": ["image1.jpg", "image3.jpg"],
+    "product_images": ["image1.jpg"],
     "description": "Это описание продукта Надфиль.",
     "feedback": [
         {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useProfile } from '../../context/ProfileContext/ProfileContext';
+import { useProfile } from '../context/ProfileContext';
 
 const Login: React.FC = () => {
   const { login } = useProfile();

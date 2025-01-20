@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ImageCarousel from '../component/ImageCarousel';
 import { Button, Container, Typography, CircularProgress, Box } from '@mui/material';
-import { useCart } from '../context/CartContext/CartContext';
+import { useCart } from '../context/CartContext';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Icon for "Add to Cart"
+import FavoriteIcon from '@mui/icons-material/Favorite'; // Icon for "Add to Favorites"
 import '../pages.css';
 
 export interface Product {
@@ -97,8 +99,42 @@ const ProductDetail: React.FC = () => {
                             ))}
                         </ul>
                         <Box sx={{ display: 'flex', justifyContent: 'space-around', marginTop: 2 }}>
-                            <Button variant="contained" color="success" onClick={handleAddToCart}>В корзину</Button>
-                            <Button variant="contained" color="primary" onClick={handleAddToFavorites}>В избранное</Button>
+                            <Button
+                                variant="contained"
+                                color="success"
+                                startIcon={<ShoppingCartIcon />}
+                                onClick={handleAddToCart}
+                                sx={{
+                                    transition: 'transform 0.2s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        backgroundColor: '#4CAF50',
+                                    },
+                                    padding: '12px 20px',
+                                    fontWeight: 700,
+                                    fontFamily: "monospace",
+                                }}
+                            >
+                                В корзину
+                            </Button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                startIcon={<FavoriteIcon />}
+                                onClick={handleAddToFavorites}
+                                sx={{
+                                    transition: 'transform 0.2s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        backgroundColor: '#1976D2',
+                                    },
+                                    padding: '12px 20px',
+                                    fontWeight: 700,
+                                    fontFamily: "monospace",
+                                }}
+                            >
+                                В избранное
+                            </Button>
                         </Box>
                     </>
                 ) : (

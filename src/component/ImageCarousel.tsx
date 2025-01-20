@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, IconButton, CircularProgress, Typography } from '@mui/material';
+import { Box, IconButton, CircularProgress } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 
 interface ImageCarouselProps {
