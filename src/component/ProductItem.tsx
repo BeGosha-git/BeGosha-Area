@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 interface Product {
     id: string;
     name: string;
-    image: string;
-    info: string;
     price: number;
 }
 

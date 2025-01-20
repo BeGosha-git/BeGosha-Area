@@ -26,7 +26,7 @@ interface CartContextType {
     addToCart: (product: Product) => void;
     removeFromCart: (id: string) => void;
     addToFavorites: (product: Product) => void;
-    removeFromFavorites: (id: string) => void;
+    removeFromFavorites: (product: Product) => void;
     checkout: () => void;
 }
 
@@ -101,10 +101,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
     };
 
-    const removeFromFavorites = (productId: string) => {
+    const removeFromFavorites = (product1: Product) => {
         setUserCart(prev => ({
             ...prev,
-            favorites: prev.favorites.filter(product => product.id !== productId),
+            favorites: prev.favorites.filter(product => product !== product1),
         }));
     };
 

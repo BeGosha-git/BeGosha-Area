@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Header from './component/Header';
 import NotFoundPage from './pages/NotFoundPage';
 import HomePage from './pages/HomePage';
-import AboutAreaPage from './pages/AboutAreaPage/AboutAreaPage';
+import AboutAreaPage from './pages/AboutAreaPage';
 import ProfilePage from './pages/ProfilePage';
 import ProductListPage from './pages/ProductListPage';
 import ProductDetail from './pages/ProductDetail';

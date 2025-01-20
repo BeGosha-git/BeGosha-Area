@@ -23,7 +23,7 @@ export interface Product {
 const ProductDetail: React.FC = () => {
     const { productName } = useParams<{ productName: string }>();
     const [product, setProduct] = useState<Product | null>(null);
-    const { addToCart, addToFavorites } = useCart();
+    const { addToCart, addToFavorites, removeFromFavorites } = useCart();
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -41,16 +41,21 @@ const ProductDetail: React.FC = () => {
         if (product) {
             const productWithPrice = { ...product, price: product.price };
             addToCart(productWithPrice);
-            alert(`${product.name} добавлен в корзину!`);
         }
     };
 
     const handleAddToFavorites = () => {
         if (product) {
             addToFavorites(product);
-            alert(`${product.name} добавлен в избранное!`);
         }
     };
+
+    const handleRemoveFromFavorites = () => {
+        if (product) {
+            removeFromFavorites(product);
+        }
+    };
+
 
     return (
         <div className='PageForm'>
