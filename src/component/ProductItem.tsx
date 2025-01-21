@@ -27,7 +27,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
                     paddingBottom: '50px',
                     paddingRight: '3px',
                     paddingLeft: '0px',
-                    borderRadius: "22px",
+                    borderRadius: "7px",
                     bgcolor: '#060606',
                     '&:hover': {
                         bgcolor: '#010203',
@@ -37,7 +37,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
                 <img src={require(`../products/${product.name}/image1.jpg`)} alt={product.name} style={{
                     width: '100%',
                     height: '90%',
-                    borderRadius: '20px',
+                    borderRadius: '5px',
                     marginLeft: '2px',
                     marginTop: '1px',
                     marginRight: '2px',

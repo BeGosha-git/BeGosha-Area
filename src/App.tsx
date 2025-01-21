@@ -40,10 +40,10 @@ const App: React.FC = () => {
               path="/profile"
               element={
                 <motion.div
-                  initial={{ y: '-150vh' }}
+                  initial={{ y: '-185vh' }}
                   animate={{ y: 0 }}
-                  exit={{ y: '-150vh' }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                  exit={{ y: '-185vh' }}
+                  transition={{ duration: 1.0, delay: 0.7 }}
                 >
                   <ProfilePage />
                 </motion.div>

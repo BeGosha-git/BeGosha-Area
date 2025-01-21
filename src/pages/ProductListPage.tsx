@@ -24,11 +24,11 @@ const ProductListPage: React.FC = () => {
             <Box
                 sx={{
                     paddingTop: '5vh',
-                    paddingBottom: 'auto',
+                    paddingBottom: '5vh',
                     marginLeft: '4vw',
                     marginRight: '3vw',
                     marginTop: '6vh',
-                    marginBottom: '8vh',
+                    marginBottom: '10vh',
                     borderRadius: "20px",
                     bgcolor: '#040404',
                 }}
@@ -61,7 +61,7 @@ const ProductListPage: React.FC = () => {
                                 marginRight: '15px',
                                 marginLeft: '15px',
                                 marginBottom: '30px',
-                                width: '16vw',
+                                width: '18vw',
                                 transition: 'transform 0.8s ease, box-shadow 0.5s ease',
                                 boxShadow: '0 0 20px #090909',
                                 "&:hover": { transform: "scale(1.12)", boxShadow: '0 0 50px #060606', color: '#FEFEFE' }

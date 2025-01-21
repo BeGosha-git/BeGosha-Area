@@ -1,0 +1,14 @@
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+
+}
+
+.box {
+    display: inline-block;
+    white-space: nowrap;
+}

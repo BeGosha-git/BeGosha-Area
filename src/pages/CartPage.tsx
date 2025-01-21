@@ -63,7 +63,7 @@ const CartPage: React.FC = () => {
                             fontFamily: "monospace",
                             letterSpacing: ".2rem",
                         }}>
-                            Итого: ${calculateTotal().toFixed(2)}
+                            Итого: {calculateTotal().toFixed(2)} рублей
                         </Typography>
                     </List>
                 )}
@@ -79,7 +79,7 @@ const CartPage: React.FC = () => {
                             transition: 'transform 0.5s ease, box-shadow 0.5s ease',
                             boxShadow: '0 0px 10px #060606',
                             color: '#FDFDFD',
-                            backgroundColor: '#111211',
+                            backgroundColor: '#090909',
                             padding: '12px 24px',
                             fontSize: '18px',
                             fontFamily: "monospace",

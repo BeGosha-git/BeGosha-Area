@@ -46,7 +46,7 @@ const AboutUs: React.FC = () => {
                     color: '#FDFDFD',
                     fontFamily: "monospace",
                     fontWeight: 700,
-                    letterSpacing: ".2rem",
+                    letterSpacing: ".1rem",
                 }}>
                     Задача Area – проверить, что работает.
                 </Typography>
@@ -58,6 +58,7 @@ const AboutUs: React.FC = () => {
                     fontFamily: "monospace",
                     fontWeight: 700,
                     letterSpacing: ".2rem",
+                    fontSize: '17px',
                 }}>
                     Ценность Area
                 </Typography>
@@ -69,7 +70,8 @@ const AboutUs: React.FC = () => {
                     color: '#FDFDFD',
                     fontFamily: "monospace",
                     fontWeight: 700,
-                    letterSpacing: ".2rem",
+                    letterSpacing: ".1rem",
+                    fontSize: '17px',
                 }}>
                     <List>
                         <ListItem>Интерфейс</ListItem>
