@@ -22,9 +22,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
             <Box
                 sx={{
                     width: '100%',
-                    height: '40vh',
+                    maxHeight: '40vh',
                     paddingTop: '0px',
-                    paddingBottom: '50px',
+                    paddingBottom: '80px',
                     paddingRight: '3px',
                     paddingLeft: '0px',
                     borderRadius: "7px",

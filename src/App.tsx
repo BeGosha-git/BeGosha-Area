@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { motion } from 'framer-motion';
 
-import Header from './component/Header';
+import Header from './component/Header/Header';
 import NotFoundPage from './pages/NotFoundPage';
 import HomePage from './pages/HomePage';
 import AboutAreaPage from './pages/AboutAreaPage';

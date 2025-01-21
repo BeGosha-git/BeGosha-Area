@@ -1,0 +1,15 @@
+.MuiMenu-paper {
+    background-color: #060606;
+    color: #060606;
+    border-radius: '25px';
+}
+
+.MuiMenu-list {
+    background-color: #060606;
+    color: #060606;
+    border-radius: '25px';
+}
+
+.MuiMenu-root{
+    border-radius: '25px';
+}
