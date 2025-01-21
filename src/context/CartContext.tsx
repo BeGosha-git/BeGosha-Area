@@ -11,12 +11,12 @@ export interface Product {
         rating: number;
     }>;
     price: number;
-    quantity?: number; // Добавлено
+    quantity?: number;
 }
 
 interface UserCart {
     userId: string;
-    cart: Array<Product & { quantity: number }>; // Количество добавлено в корзину
+    cart: Array<Product & { quantity: number }>; 
     favorites: Product[];
     purchaseHistory: Array<{ products: Array<Product & { quantity: number }>; date: string }>; // История покупок
 }
@@ -26,7 +26,7 @@ interface CartContextType {
     addToCart: (product: Product) => void;
     removeFromCart: (id: string) => void;
     addToFavorites: (product: Product) => void;
-    removeFromFavorites: (product: Product) => void;
+    removeFromFavorites: (id: string) => void;
     checkout: () => void;
 }
 
@@ -101,15 +101,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
     };
 
-    const removeFromFavorites = (product1: Product) => {
+    const removeFromFavorites = (id: string) => {
         setUserCart(prev => ({
             ...prev,
-            favorites: prev.favorites.filter(product => product !== product1),
+            favorites: prev.favorites.filter(product => product.id !== id),
         }));
     };
 
     const checkout = () => {
-        // Сохранение покупок в историю
         const purchaseRecord = {
             products: userCart.cart,
             date: new Date().toLocaleString(),
@@ -118,7 +117,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUserCart(prev => ({
             ...prev,
             purchaseHistory: [...prev.purchaseHistory, purchaseRecord],
-            cart: [], // Очищаем корзину после оформления заказа
+            cart: [],
         }));
     };
 

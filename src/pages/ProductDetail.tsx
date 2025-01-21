@@ -23,7 +23,7 @@ export interface Product {
 const ProductDetail: React.FC = () => {
     const { productName } = useParams<{ productName: string }>();
     const [product, setProduct] = useState<Product | null>(null);
-    const { addToCart, addToFavorites, removeFromFavorites } = useCart();
+    const { userCart, addToCart, addToFavorites, removeFromFavorites } = useCart();
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -52,10 +52,11 @@ const ProductDetail: React.FC = () => {
 
     const handleRemoveFromFavorites = () => {
         if (product) {
-            removeFromFavorites(product);
+            removeFromFavorites(product.id);
         }
     };
 
+    const isFavorite = userCart?.favorites.some(favorite => favorite.id === product?.id);
 
     return (
         <div className='PageForm'>
@@ -122,24 +123,46 @@ const ProductDetail: React.FC = () => {
                             >
                                 В корзину
                             </Button>
-                            <Button
+                            {!isFavorite ? (
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<FavoriteIcon />}
+                                    onClick={handleAddToFavorites}
+                                    sx={{
+                                        transition: 'transform 0.2s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                            backgroundColor: '#1976D2',
+                                        },
+                                        padding: '12px 20px',
+                                        fontWeight: 700,
+                                        fontFamily: "monospace",
+                                    }}
+                                >
+                                    В избранное
+                                </Button>
+                            ) : (
+                                <Button
                                 variant="contained"
                                 color="primary"
                                 startIcon={<FavoriteIcon />}
-                                onClick={handleAddToFavorites}
+                                onClick={handleRemoveFromFavorites}
                                 sx={{
                                     transition: 'transform 0.2s ease',
+                                    backgroundColor: '#BB4411',
                                     '&:hover': {
                                         transform: 'scale(1.05)',
-                                        backgroundColor: '#1976D2',
+                                        backgroundColor: '#DD7652',
                                     },
                                     padding: '12px 20px',
                                     fontWeight: 700,
                                     fontFamily: "monospace",
                                 }}
                             >
-                                В избранное
+                                Убрать из избранного
                             </Button>
+                            )}
                         </Box>
                     </>
                 ) : (
