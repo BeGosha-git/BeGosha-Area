@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Profile", "About Area", "Products", "Cart"];//, "login", "Register"
-const title_version = "BeGosha Area 1.2.99";
+const title_version = "BeGosha Area 1.3.1";
 const Header = () => {
   /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null

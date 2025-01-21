@@ -65,6 +65,7 @@ const ProfilePage: React.FC = () => {
                         fontFamily: "monospace",
                         fontWeight: 700,
                         letterSpacing: ".1rem",
+                        marginTop: -3
                     }}>
                         Вы еще ничего не купили.
                     </Typography>
