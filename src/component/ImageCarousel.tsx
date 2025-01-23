@@ -40,7 +40,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ product_images, productNa
                     </IconButton>
 
                     <img
-                        src={require(`../products/${productName}/${product_images[currentIndex]}`)}
+                        src={require(`../product/${productName}/${product_images[currentIndex]}`)}
                         alt={`Картинка - ${currentIndex + 1} из ${product_images.length}`}
                         style={{
                             borderRadius: '8px',

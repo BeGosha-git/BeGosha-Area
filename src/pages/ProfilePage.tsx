@@ -84,7 +84,7 @@ const ProfilePage: React.FC = () => {
                                     </Typography>
                                     <List>
                                         {purchase.products.map((product, productIndex) => (
-                                            <Link key={product.name} to={`/products/${product.name}`} style={{ textDecoration: 'none', color: '#FDFDFD' }}>
+                                            <Link key={product.name} to={`/product/${product.name}`} style={{ textDecoration: 'none', color: '#FDFDFD' }}>
                                                 <Box sx={{
                                                     display: 'flex',
                                                     transition: 'transform 0.5s ease, box-shadow 0.5s ease',
@@ -98,7 +98,7 @@ const ProfilePage: React.FC = () => {
                                                         transform: 'scale(1.01)',
                                                     },
                                                 }}>
-                                                <img src={require(`../products/${product.name}/image1.jpg`)} alt={product.name} style={{
+                                                <img src={require(`../product/${product.name}/image1.jpg`)} alt={product.name} style={{
                                                     width: '3%',
                                                     height: '3%',
                                                     borderRadius: '5px',

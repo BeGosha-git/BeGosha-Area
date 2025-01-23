@@ -18,7 +18,7 @@ interface ProductItemProps {
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
     return (
-        <Link to={`/products/${encodeURIComponent(product.name)}`} style={{textDecoration: "none"}}>
+        <Link to={`/product/${encodeURIComponent(product.name)}`} style={{textDecoration: "none"}}>
             <Box
                 sx={{
                     width: '100%',
@@ -34,7 +34,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
                     },
                 }}
             >
-                <img src={require(`../products/${product.name}/image1.jpg`)} alt={product.name} style={{
+                <img src={require(`../product/${product.name}/image1.jpg`)} alt={product.name} style={{
                     width: '100%',
                     height: '90%',
                     borderRadius: '5px',
