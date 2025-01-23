@@ -23,7 +23,7 @@ export interface Product {
 const ProductDetail: React.FC = () => {
     const { productName } = useParams<{ productName: string }>();
     const [product, setProduct] = useState<Product | null>(null);
-    const { userCart, addToCart, addToFavorites, removeFromFavorites } = useCart();
+    const { userCart, addToCart, deleteFromCart, addToFavorites, removeFromFavorites } = useCart();
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -44,6 +44,12 @@ const ProductDetail: React.FC = () => {
         }
     };
 
+    const handleDeleteFromCart = () => {
+        if (product) {
+            deleteFromCart(product.id);
+        }
+    };
+
     const handleAddToFavorites = () => {
         if (product) {
             addToFavorites(product);
@@ -57,7 +63,8 @@ const ProductDetail: React.FC = () => {
     };
 
     const isFavorite = userCart?.favorites.some(favorite => favorite.id === product?.id);
-
+    const isInCart = userCart?.cart.some(cart => cart.id === product?.id);
+    
     return (
         <div className='PageForm'>
             <Container sx={{
@@ -105,6 +112,7 @@ const ProductDetail: React.FC = () => {
                             ))}
                         </ul>
                         <Box sx={{ display: 'flex', justifyContent: 'space-around', marginTop: 2 }}>
+                            {!isInCart ? (
                             <Button
                                 variant="contained"
                                 color="success"
@@ -123,6 +131,26 @@ const ProductDetail: React.FC = () => {
                             >
                                 В корзину
                             </Button>
+                            ):(
+                                <Button
+                                variant="contained"
+                                color="primary"
+                                startIcon={<ShoppingCartIcon />}
+                                onClick={handleDeleteFromCart}
+                                sx={{
+                                    transition: 'transform 0.2s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        backgroundColor: '#FF5550',
+                                    },
+                                    padding: '12px 20px',
+                                    fontWeight: 700,
+                                    fontFamily: "monospace",
+                                }}
+                            >
+                                Убрать из корзины
+                            </Button>
+                            )}
                             {!isFavorite ? (
                                 <Button
                                     variant="contained"

@@ -25,6 +25,7 @@ interface CartContextType {
     userCart: UserCart | null;
     addToCart: (product: Product) => void;
     removeFromCart: (id: string) => void;
+    deleteFromCart: (id: string) => void; 
     addToFavorites: (product: Product) => void;
     removeFromFavorites: (id: string) => void;
     checkout: () => void;
@@ -88,6 +89,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
     };
 
+    const deleteFromCart = (id: string) => {
+        setUserCart(prev => {
+            const existingProductIndex = prev.cart.findIndex(item => item.id === id);
+            if (existingProductIndex === -1) return prev;
+            const updatedCart = [...prev.cart];
+            return { ...prev, cart: updatedCart.filter(item => item.id !== id) };
+        });
+    };
+
     const addToFavorites = (product: Product) => {
         setUserCart(prev => {
             const alreadyExists = prev.favorites.some(favorite => favorite.id === product.id);
@@ -122,7 +132,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     return (
-        <CartContext.Provider value={{ userCart, addToCart, removeFromCart, addToFavorites, removeFromFavorites, checkout }}>
+        <CartContext.Provider value={{ userCart, addToCart, deleteFromCart, removeFromCart, addToFavorites, removeFromFavorites, checkout }}>
             {children}
         </CartContext.Provider>
     );

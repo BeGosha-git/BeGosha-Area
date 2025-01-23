@@ -1,14 +1,27 @@
-import React from 'react'
-import logo from '../logo.svg';
+import React, { useEffect, useRef } from 'react';
 import '../pages.css';
 
 const HomePage = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+      const video = videoRef.current;
+      if (video) {
+          video.play();
+      }
+  }, []);
+
   return (
     <div className='PageForm'>
-      <img src={logo} className="App-logo" alt="logo" />
-          <p>
-          Ожи<code>да</code>ние...
-          </p>
+      <div style={{ overflow: 'hidden', textAlign: 'center', marginTop: '6vh' }}>
+          <video
+              ref={videoRef}
+              src="/home.mp4"
+              style={{ position: 'relative', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: '-1' }}
+              muted
+              loop
+          />
+      </div>
     </div>
   )
 };
