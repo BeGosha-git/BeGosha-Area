@@ -14,20 +14,23 @@ const NotFoundPage = () => {
     
     return (
         <div className='PageForm'>
-            <Box sx={{textAlign: 'center'}}>
-                <Typography className="page-not-found__title" variant="h1" component="h1">
-                    Уупс!
-                </Typography>
+            <Box sx={{position: 'fixed', textAlign: 'center',backgroundColor: '#010203', marginTop: '-5vh', marginLeft: '8vw'}}>
                 <Box className="page-not-found__animation-container">
                     <Box className="page-not-found__illustration"></Box>
                 </Box>
-                <Typography className="page-not-found__message" component="p">
-                    Вы попали куда-то не туда...
+                <Typography className="page-not-found__message" variant="h2" component="h3" sx={{
+                    marginBottom: 0,
+                    marginTop: '7vh',
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".2rem"
+                }}>
+                    404 Похоже вы попали куда-то не туда...
                 </Typography>
                 <video
                     ref={videoRef}
-                    src="/home.mp4"
-                    style={{ position: 'relative', top: 4, left: 0, width: '70vw', height: '70vh', objectFit: 'cover', zIndex: '-1' }}
+                    src="/waiting.mp4"
+                    style={{ position: 'fixed', top: '10vh', left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: '-1' }}
                     muted
                     loop
                 />

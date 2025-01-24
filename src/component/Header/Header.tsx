@@ -17,7 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import './Header.css'
 
 const pages = ["Profile", "About Area", "Products", "Cart"];//, "login", "Register"
-const title_version = "BeGosha Area 1.3.18";
+const title_version = "BeGosha Area 1.3.19";
 const Header = () => {
   /*const [NavMenu, setAnchorNav] = React.useState<null | HTMLElement>(
       null
@@ -92,7 +92,7 @@ const Header = () => {
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: "block", md: "none"}, borderRadius: '5px'
+                  display: { xs: "block", md: "none" }, borderRadius: '5px'
                 }}>
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ backgroundColor: '#060606', "&:hover": { backgroundColor: '#1A1A1A' } }}>
@@ -125,7 +125,7 @@ const Header = () => {
               }}>
               {title_version}
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, backgroundColor: '#060606'}}>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, backgroundColor: '#060606' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
