@@ -31,7 +31,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onRemove, onIncrease, 
                 <CardMedia
                     component="img"
                     sx={{ height: 100, width: 100, borderRadius: '8px', marginRight: 2 }}
-                    image={`../../products/${item.name}/${item.product_images[0]}`}
+                    image={`../../product/${item.name}/${item.product_images[0]}`}
                     alt={item.name}
                 />
             </Link>

@@ -18,7 +18,7 @@ interface ProductItemProps {
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
     return (
-        <Link to={`/product/${encodeURIComponent(product.name)}`} style={{textDecoration: "none"}}>
+        <Link to={`/products/${encodeURIComponent(product.name)}`} style={{textDecoration: "none"}}>
             <Box
                 sx={{
                     width: '100%',

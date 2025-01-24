@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import ImageCarousel from '../component/ImageCarousel';
 import { Button, Container, Typography, CircularProgress, Box } from '@mui/material';
 import { useCart } from '../context/CartContext';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Icon for "Add to Cart"
-import FavoriteIcon from '@mui/icons-material/Favorite'; // Icon for "Add to Favorites"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import '../pages.css';
 
 export interface Product {
@@ -27,7 +27,7 @@ const ProductDetail: React.FC = () => {
 
     useEffect(() => {
         const fetchProductData = async () => {
-            const response = await fetch(`../products/${productName}/info.json`);
+            const response = await fetch(`../product/${productName}/info.json`);
             const data: Product = await response.json();
             setProduct(data);
         };
@@ -64,7 +64,7 @@ const ProductDetail: React.FC = () => {
 
     const isFavorite = userCart?.favorites.some(favorite => favorite.id === product?.id);
     const isInCart = userCart?.cart.some(cart => cart.id === product?.id);
-    
+
     return (
         <div className='PageForm'>
             <Container sx={{
@@ -113,43 +113,43 @@ const ProductDetail: React.FC = () => {
                         </ul>
                         <Box sx={{ display: 'flex', justifyContent: 'space-around', marginTop: 2 }}>
                             {!isInCart ? (
-                            <Button
-                                variant="contained"
-                                color="success"
-                                startIcon={<ShoppingCartIcon />}
-                                onClick={handleAddToCart}
-                                sx={{
-                                    transition: 'transform 0.2s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        backgroundColor: '#4CAF50',
-                                    },
-                                    padding: '12px 20px',
-                                    fontWeight: 700,
-                                    fontFamily: "monospace",
-                                }}
-                            >
-                                В корзину
-                            </Button>
-                            ):(
                                 <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<ShoppingCartIcon />}
-                                onClick={handleDeleteFromCart}
-                                sx={{
-                                    transition: 'transform 0.2s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        backgroundColor: '#FF5550',
-                                    },
-                                    padding: '12px 20px',
-                                    fontWeight: 700,
-                                    fontFamily: "monospace",
-                                }}
-                            >
-                                Убрать из корзины
-                            </Button>
+                                    variant="contained"
+                                    color="success"
+                                    startIcon={<ShoppingCartIcon />}
+                                    onClick={handleAddToCart}
+                                    sx={{
+                                        transition: 'transform 0.2s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                            backgroundColor: '#4CAF50',
+                                        },
+                                        padding: '12px 20px',
+                                        fontWeight: 700,
+                                        fontFamily: "monospace",
+                                    }}
+                                >
+                                    В корзину
+                                </Button>
+                            ) : (
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<ShoppingCartIcon />}
+                                    onClick={handleDeleteFromCart}
+                                    sx={{
+                                        transition: 'transform 0.2s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                            backgroundColor: '#FF5550',
+                                        },
+                                        padding: '12px 20px',
+                                        fontWeight: 700,
+                                        fontFamily: "monospace",
+                                    }}
+                                >
+                                    Убрать из корзины
+                                </Button>
                             )}
                             {!isFavorite ? (
                                 <Button
@@ -172,24 +172,24 @@ const ProductDetail: React.FC = () => {
                                 </Button>
                             ) : (
                                 <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<FavoriteIcon />}
-                                onClick={handleRemoveFromFavorites}
-                                sx={{
-                                    transition: 'transform 0.2s ease',
-                                    backgroundColor: '#BB4411',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        backgroundColor: '#DD7652',
-                                    },
-                                    padding: '12px 20px',
-                                    fontWeight: 700,
-                                    fontFamily: "monospace",
-                                }}
-                            >
-                                Убрать из избранного
-                            </Button>
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<FavoriteIcon />}
+                                    onClick={handleRemoveFromFavorites}
+                                    sx={{
+                                        transition: 'transform 0.2s ease',
+                                        backgroundColor: '#BB4411',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                            backgroundColor: '#DD7652',
+                                        },
+                                        padding: '12px 20px',
+                                        fontWeight: 700,
+                                        fontFamily: "monospace",
+                                    }}
+                                >
+                                    Убрать из избранного
+                                </Button>
                             )}
                         </Box>
                     </>

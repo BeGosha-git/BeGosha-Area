@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, List, ListItem, Box, Paper } from '@mui/material';
+import { Container, Typography, List, ListItem, Paper } from '@mui/material';
 import '../pages.css'
 
 const AboutUs: React.FC = () => {
